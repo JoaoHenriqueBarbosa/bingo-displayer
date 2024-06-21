@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "base/variables";
+
+@layer base {
+  :root {
+    --background: 200 20% 98%;
+    --btn-background: 200 10% 91%;
+    --btn-background-hover: 200 10% 89%;
+    --foreground: 200 50% 3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-foreground/20;
+  }
+}
+
+.title {
+  font-size: 39px;
+  line-height: normal;
+  font-weight: bold;
+}
+
+.react-datepicker-ignore-onclickoutside,
+.react-datepicker-wrapper {
+  width: 100% !important;
+}
+
+.previous-number {
+  background-color: $primary-darken-color;
+  color: white;
+  height: 58px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 4px;
+}
+
+.current-number {
+  background-color: $primary-darken-color;
+  color: white;
+  font-weight: bold;
+
+  // make it responsive square
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
+  .letter {
+    font-size: 7rem;
+    margin-bottom: -80px;
+  }
+
+  .number {
+    font-size: 15rem;
+  }
+}
