@@ -145,7 +145,7 @@ $round-buttons: 40px !default;
 //==============================================================================
 
 $forms: (
-  "[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email],        [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea"
+  "[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email],        [type=month], [type=number], [type=password], input, [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea"
 ) !default;
 $buttons: (
   ".button, a.button, button, [type=submit], [type=reset], [type=button]"
