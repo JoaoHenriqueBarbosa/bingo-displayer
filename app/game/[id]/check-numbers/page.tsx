@@ -16,7 +16,7 @@ export default async function CheckNumbers({
 
   return (
     <div>
-      <div className="border rounded-lg p-2 mb-2 pl-6 pr-4">
+      <div className="it_had_border_here bg-white rounded-lg shadow-lg p-2 mb-2 pl-6 pr-4">
         {format(new Date(game.datetime), "dd/MM - HH:mm")} &nbsp;| &nbsp;Jogo{" "}
         {game.number} &nbsp;| &nbsp;
         {game.prizes?.map((prize: string) => prize).join(", ")}

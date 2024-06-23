@@ -79,7 +79,7 @@ export default function Login({
           Email
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md px-4 py-2 bg-inherit it_had_border_here mb-6"
           name="email"
           placeholder="you@example.com"
           required
@@ -88,7 +88,7 @@ export default function Login({
           Password
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md px-4 py-2 bg-inherit it_had_border_here mb-6"
           type="password"
           name="password"
           placeholder="••••••••"
@@ -103,7 +103,7 @@ export default function Login({
         </SubmitButton>
         <SubmitButton
           formAction={signUp}
-          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+          className="it_had_border_here it_had_border_here-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
           pendingText="Signing Up..."
         >
           Sign Up

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import GameForm from "./game-form";
 import { Database } from "@/utils/supabase/types";
 import Link from "next/link";
+import { cn } from "@/utils/tw";
 
 type FormState = {
   open: boolean;
@@ -21,6 +22,7 @@ export default function GamesDisplay() {
   });
   const [games, setGames] = useState<Game[]>([]);
   const supabase = createClient();
+  const [currentGameId, setCurrentGameId] = useState<number | null>(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -58,14 +60,50 @@ export default function GamesDisplay() {
       )
       .subscribe();
 
+    const getGame = async () => {
+      const { data } = await supabase
+        .from("shared-context")
+        .select()
+        .eq("id", 1);
+
+      setCurrentGameId(data?.[0].current_game);
+    };
+    getGame();
+
+    const channel2 = supabase
+      .channel("games-current-game-update-channel")
+      .on(
+        "postgres_changes",
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "shared-context",
+          filter: "id=eq.1",
+        },
+        async (payload: any) => {
+          setCurrentGameId(payload.new.current_game);
+        }
+      )
+      .subscribe();
+
     return () => {
       channel.unsubscribe();
+      channel2.unsubscribe();
     };
   }, []);
 
   const onFormClose = useCallback(() => {
     setFormState({ open: false });
   }, []);
+
+  const onGameSelect = async (game: Game) => {
+    const currentId = currentGameId === game.id ? null : game.id;
+    console.log(currentId);
+    await supabase
+      .from("shared-context")
+      .update({ current_game: currentId })
+      .eq("id", 1);
+  };
 
   return (
     <div className="relative">
@@ -80,14 +118,23 @@ export default function GamesDisplay() {
         {games.map((game) => (
           <li
             key={game.id}
-            className="border rounded-lg p-2 mb-2 flex justify-between items-center pl-6 pr-4"
+            className="it_had_border_here bg-white rounded-lg shadow-lg p-2 mb-2 flex justify-between items-center pl-6 pr-4"
           >
             <p className="m-0 text-primary-darken font-semibold">
               {format(new Date(game.datetime), "dd/MM - HH:mm")} &nbsp;|
               &nbsp;Jogo {game.number} &nbsp;| &nbsp;
               {game.prizes?.map((prize: string) => prize).join(", ")}
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
+              <button
+                onClick={() => onGameSelect(game)}
+                className={cn("m-0", {
+                  "bg-white text-primary-darken hover:bg-primary-darken hover:text-white":
+                    currentGameId !== game.id,
+                })}
+              >
+                {currentGameId === game.id ? "Jogo atual" : "Selecionar"}
+              </button>
               <Link
                 href={`/game/${game.id}/check-numbers`}
                 title="Marcar números"

@@ -122,7 +122,7 @@ export function NumbersGrid({ gameId: game }: { gameId: number }) {
       {lettersAndNumbers.map(({ letter, maxNumber }, letterIndex) => (
         <div
           key={letter}
-          className="border rounded-lg p-5 mb-2 pl-3 flex gap-2 flex-wrap"
+          className="it_had_border_here bg-white rounded-lg shadow-lg p-5 mb-2 pl-3 flex gap-2 flex-wrap"
         >
           <p className="text-primary-darken font-semibold text-2xl h-11 w-11 justify-center m-0 flex items-center">
             {letter}

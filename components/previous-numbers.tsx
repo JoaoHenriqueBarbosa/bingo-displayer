@@ -6,7 +6,7 @@ export default function PreviousNumbers({
   numbers: NumberObject[];
 }) {
   return (
-    <div className="border rounded-lg p-2 px-8 pb-8">
+    <div className="it_had_border_here bg-white rounded-lg shadow-lg p-2 px-8 pb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">
         ⏮️ Números anteriores
       </h2>

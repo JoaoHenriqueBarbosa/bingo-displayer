@@ -34,7 +34,7 @@ export default function GameForm({ editing, onClose }: { editing?: Game | null, 
 
 	return (
 		<div tabIndex={0} className="fixed top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center">
-			<div className="bg-white rounded-lg p-6 min-w-[380px]">
+			<div className="bg-white rounded-lg shadow-lg p-6 min-w-[380px]">
 				<form className="flex flex-col" onSubmit={formSubmit}>
 					<div className='flex justify-between items-center'>
 						<p className="text-2xl font-bold m-0">{

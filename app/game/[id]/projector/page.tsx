@@ -1,5 +1,4 @@
 import { createClient } from "@/utils/supabase/server";
-import { format } from "date-fns";
 import Projection from "@/components/projection";
 
 export default async function CheckNumbers({
@@ -15,12 +14,7 @@ export default async function CheckNumbers({
     .single();
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="border rounded-lg p-4 text-2xl text-center">
-        Jogo {game.number}
-        <span className="h-full w-[1px] border-l mx-4 border-foreground/40" />
-        {format(new Date(game.datetime), "dd/MM - HH:mm")}
-      </div>
+    <div className="p-5">
       <Projection game={game} />
     </div>
   );
