@@ -9,7 +9,7 @@ import PreviousNumbers from "./previous-numbers";
 import CurrentNumber from "./current-number";
 import { LayoutContext } from "./reducers/layout/layout-reducer";
 import { format } from "date-fns";
-import Header from "./Header";
+import Header from "./header";
 
 export default function Projection({ game }: { game: Game }) {
   const [numbers, setNumbers] = useState<NumberObject[]>([]);

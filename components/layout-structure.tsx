@@ -1,5 +1,5 @@
 "use client";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { LayoutContext } from "@/components/reducers/layout/layout-reducer";
 import { useContext } from "react";
 

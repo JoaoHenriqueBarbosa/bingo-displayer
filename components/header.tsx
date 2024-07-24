@@ -15,7 +15,7 @@ export default function Header() {
       })}>
         <Link href="/">
           <Image
-            src="/logo-cecom.png"
+            src="/logo.webp"
             width={301 / (layout === "main" ? 1.5 : 2.5)}
             height={171 / (layout === "main" ? 1.5 : 2.5)}
             alt="Logo"
@@ -23,7 +23,7 @@ export default function Header() {
         </Link>
         <h1 className={cn("title", {
           "!m-0": layout === "projector" || layout === "main-projector"
-        })}>III BINGO CECOM</h1>
+        })}>BINGO DISPLAYER</h1>
       </div>
     </div>
   );

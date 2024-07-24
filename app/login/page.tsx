@@ -32,6 +32,11 @@ export default function Login({
       <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
 
       <form className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
+        <p>
+          Você pode user:
+          <br />
+          <strong>admin@admin.com</strong> e <strong>admin</strong> como senha
+        </p>
         <label className="text-md" htmlFor="email">
           Email
         </label>
